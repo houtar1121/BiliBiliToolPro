@@ -66,7 +66,6 @@ jobs:
       result: ${{ steps.check.outputs.result }} # 不能直接传递secrets的值，否则会被skip，需要转一下
     steps:
     - id: check
-      if: env.IsOpenDailyTask=='true'
       run: |
         echo "::set-output name=result::开启"
 
