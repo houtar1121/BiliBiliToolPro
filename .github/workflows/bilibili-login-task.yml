@@ -38,8 +38,8 @@ jobs:
         cd ./src/Ray.BiliBiliTool.Console
         dotnet run --runTasks=Login
 
-    - name: Get cookies
-      id: cookies
-      run: echo "cookies=$(cat /home/runner/work/BiliBiliToolPro/BiliBiliToolPro/src/Ray.BiliBiliTool.Console/cookies.json)" >> $GITHUB_OUTPUT
-    - name: Test output
-      run: echo ${{ steps.vars.outputs.cookies }}
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: cookies
+        path: /home/runner/work/BiliBiliToolPro/BiliBiliToolPro/src/Ray.BiliBiliTool.Console/cookies.json
